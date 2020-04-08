@@ -1,0 +1,6 @@
+<div class="estimator">
+    <div class="buttons">
+        <button mat-mini-fab *ngFor="let button of buttonTimes; let i = index"
+            (click)="pressButton(i)">{{i+1}}</button>
+    </div>
+</div>
