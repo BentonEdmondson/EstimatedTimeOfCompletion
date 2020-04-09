@@ -1,20 +1,27 @@
-.estimator {
+.centered {
     position: absolute;
-    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);    /* Older Gecko browser */
-    -ms-transform: translate(-50%, -50%);     /* IE9+ */
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     /* the above: https://stackoverflow.com/a/17973808/12944748 */
+}
 
-    width: 100%;
+.estimator {
     height: 100px;
-  }
+    width: 100%;
+}
 
 .buttons {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.etoc {
+    margin-top: 100px;
+    width: 100%;
 }
