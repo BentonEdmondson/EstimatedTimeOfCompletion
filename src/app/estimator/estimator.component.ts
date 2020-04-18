@@ -9,7 +9,8 @@ import * as moment from 'moment';
 })
 export class EstimatorComponent implements OnInit {
 
-  startTime: number = moment().valueOf();
+  startTime = moment();
+  timeSinceStart: string = '0:00:00';
   buttons: Array<number> = Array(Number(this.route.snapshot.paramMap.get('numTasks'))).fill(0).map((x, i) => i);
   curTask: number = 1;
   etoc: string = 'n/a';
@@ -17,10 +18,13 @@ export class EstimatorComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    setInterval(() => {
+      this.timeSinceStart = moment.utc(moment().diff(this.startTime)).format('H:mm:ss');
+    }, 500)
   }
 
   finishTask = (task) => {
-    this.etoc = moment(((this.buttons.length / task) * (moment().valueOf() - this.startTime) + this.startTime)).local().format("h:mm A");
+    this.etoc = moment(((this.buttons.length / task) * (moment().valueOf() - this.startTime.valueOf()) + this.startTime.valueOf())).local().format('h:mm A');
     this.curTask = task + 1;
   }
 
