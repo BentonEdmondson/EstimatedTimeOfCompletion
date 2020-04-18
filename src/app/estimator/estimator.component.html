@@ -1,10 +1,10 @@
-<div class="centered estimator" style="top: 35%">
+<div class="centered estimator">
     <div class="buttons">
         <button mat-mini-fab [color]="buttonNum+1<curTask?'warn':'accent'" [disabled]="false"
             *ngFor="let buttonNum of buttons" (click)="finishTask(buttonNum+1)">{{buttonNum+1}}</button>
     </div>
     <div class="centered etoc">
-        <div class="centered mat-display-1">You'll be done at...</div>
-        <div style="margin-top: 70px;" class="centered mat-display-4">{{etoc}}</div>
+        <div style="font-size: 5vw;" class="centered">You'll be done at...</div>
+        <div style="font-size: 10vw; margin-top: 8vw;" class="centered">{{etoc}}</div>
     </div>
 </div>
