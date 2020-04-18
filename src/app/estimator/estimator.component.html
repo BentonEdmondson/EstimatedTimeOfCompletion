@@ -1,4 +1,8 @@
-<div class="centered" style="font-size: 4vw; margin-top: 5%;">{{this.timeSinceStart}}</div>
+<span>
+    <button mat-flat-button color='basic' (click)='takeBreak(dialogBox)'>Take Break</button>
+
+    <span class="centered" style="font-size: 4vw; margin-top: 5%;">{{this.timeSinceStart}}</span>
+</span>
 
 <div class="centered estimator">
     <div class="buttons">
@@ -6,7 +10,13 @@
             *ngFor="let buttonNum of buttons" (click)="finishTask(buttonNum+1)">{{buttonNum+1}}</button>
     </div>
     <div class="centered etoc">
-        <div style="font-size: 5vw;" class="centered">You'll be done at...</div>
-        <div style="font-size: 10vw; margin-top: 8vw;" class="centered">{{etoc}}</div>
+        <div style="font-size: 5vw;" class="centered">You'll be done at:</div>
+        <div style="font-size: 10vw; margin-top: 8vw;" class="centered">
+            {{this.curTask > 1 ? etoc.local().format('h:mm A') : 'n/a'}}</div>
     </div>
 </div>
+
+<ng-template #dialogBox>
+    <h1 mat-dialog-title>You are taking a break...</h1>
+    <button mat-button (click)='closeDialogBox()'>End Break</button>
+</ng-template>
