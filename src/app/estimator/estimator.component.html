@@ -6,7 +6,7 @@
 
 <div class="centered estimator">
     <div class="buttons">
-        <button mat-mini-fab [color]="buttonNum+1<curTask?'warn':'accent'" [disabled]="false"
+        <button mat-mini-fab [color]="buttonNum+1<curTask?'warn':'accent'"
             *ngFor="let buttonNum of buttons"
             (click)="buttonNum+1 != buttons.length ? finishTask(buttonNum+1) : congratulateUser(congratulationsDialogBox)">{{buttonNum+1}}</button>
     </div>
