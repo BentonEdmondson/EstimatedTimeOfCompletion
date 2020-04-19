@@ -36,7 +36,7 @@ export class EstimatorComponent implements OnInit {
   }
 
   dialogBox;
-  takeBreak = (templateRef) => {
+  takeBreak = templateRef => {
     let initialBreakQuantity = this.totalQuantityOfBreaks;
     let initialEtoc = this.etoc
     let breakStartTime = moment().valueOf();
