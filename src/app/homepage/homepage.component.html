@@ -1,0 +1,11 @@
+<div class="centered" style="margin-top: 250px; text-align: center; width: 100%;">
+    <div class="mat-h1">Get an estimate of when you'll be done with your list of things.</div>
+
+    <form style="margin-top: 5%;">
+        <mat-form-field color="accent" style="width: 200px;">
+            <mat-label>Number of things on your list</mat-label>
+            <input matInput placeholder="5" autocomplete="off" #form>
+        </mat-form-field>
+        <button mat-flat-button color="primary" style="margin-left: 20px;" (click)="gotoApp(form.value)">GO!</button>
+    </form>
+</div>
