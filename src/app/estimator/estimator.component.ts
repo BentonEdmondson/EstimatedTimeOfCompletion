@@ -45,7 +45,6 @@ export class EstimatorComponent implements OnInit {
 
     let intervalRef = setInterval(() => {
       this.totalQuantityOfBreaks = initialBreakQuantity + (moment().valueOf() - breakStartTime);
-      console.log(this.totalQuantityOfBreaks);
       if (this.curTask > 1) this.etoc = moment(initialEtoc.valueOf() + this.totalQuantityOfBreaks);
     }, 500);
 

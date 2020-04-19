@@ -10,7 +10,6 @@
 }
 
 .estimator {
-    height: 100px;
     width: 100%;
     top: 35%;
 }
@@ -30,6 +29,5 @@ button {
 }
 
 .etoc {
-    margin-top: 100px;
     width: 100%;
 }
