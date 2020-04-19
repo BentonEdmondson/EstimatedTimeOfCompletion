@@ -1,5 +1,5 @@
 <span>
-    <button mat-flat-button color='basic' (click)='takeBreak(dialogBox)'>TAKE BREAK</button>
+    <button mat-flat-button color="basic" (click)="takeBreak(breakDialogBox)">TAKE BREAK</button>
 
     <span class="centered" style="font-size: 25px; margin-top: 7vw;">{{this.timeSinceStart}}</span>
 </span>
@@ -7,7 +7,8 @@
 <div class="centered estimator">
     <div class="buttons">
         <button mat-mini-fab [color]="buttonNum+1<curTask?'warn':'accent'" [disabled]="false"
-            *ngFor="let buttonNum of buttons" (click)="finishTask(buttonNum+1)">{{buttonNum+1}}</button>
+            *ngFor="let buttonNum of buttons"
+            (click)="buttonNum+1 != buttons.length ? finishTask(buttonNum+1) : congratulateUser(congratulationsDialogBox)">{{buttonNum+1}}</button>
     </div>
     <div class="centered etoc">
         <div style="font-size: 5vw;" class="centered">You'll be done at:</div>
@@ -16,7 +17,16 @@
     </div>
 </div>
 
-<ng-template #dialogBox>
+<ng-template #breakDialogBox>
     <h1 mat-dialog-title>You are taking a break...</h1>
-    <button mat-button (click)='closeDialogBox()'>End Break</button>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialogBox()">End Break</button>
+    </div>
+</ng-template>
+
+<ng-template #congratulationsDialogBox>
+    <h1 mat-dialog-title>You finished!</h1>
+    <div mat-dialog-actions>
+        <button mat-button (click)="returnHome()">DO ANOTHER</button>
+    </div>
 </ng-template>

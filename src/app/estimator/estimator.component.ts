@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -19,7 +19,8 @@ export class EstimatorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class EstimatorComponent implements OnInit {
     }, 500);
   }
 
-  finishTask = (task) => {
+  finishTask = task => {
     this.etoc = moment(
       (this.buttons.length / task) * (moment().valueOf() - this.startTime.valueOf() - this.totalQuantityOfBreaks) + this.startTime.valueOf() + this.totalQuantityOfBreaks
     );
@@ -40,9 +41,7 @@ export class EstimatorComponent implements OnInit {
     let initialBreakQuantity = this.totalQuantityOfBreaks;
     let initialEtoc = this.etoc
     let breakStartTime = moment().valueOf();
-    this.dialogBox = this.dialog.open(templateRef, {
-      width: '250px'
-    });
+    this.dialogBox = this.dialog.open(templateRef, {});
 
     let intervalRef = setInterval(() => {
       this.totalQuantityOfBreaks = initialBreakQuantity + (moment().valueOf() - breakStartTime);
@@ -57,5 +56,12 @@ export class EstimatorComponent implements OnInit {
   }
 
   closeDialogBox = () => this.dialogBox.close();
+
+  congratulateUser = templateRef => this.dialogBox = this.dialog.open(templateRef, {});
+
+  returnHome = () => {
+    this.dialogBox.close();
+    this.router.navigate(['']);
+  }
 
 }
