@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   }
 
   gotoApp = numTasks => {
-    this.router.navigateByUrl(`/app/${numTasks}`);
+    this.router.navigateByUrl(`/estimator/${numTasks}`);
   }
 
 }
